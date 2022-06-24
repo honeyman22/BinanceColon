@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn.coinranking.com"],
+    domains: ["cdn.coinranking.com", "www.bing.com"],
   },
   env: {
     REACT_APPP_CRYPTO_CRYPTO_X_RAPIDAPI_HOST:

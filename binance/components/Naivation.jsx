@@ -100,7 +100,7 @@ const Naivation = () => {
           <div className="p-3 cursor-pointer hover:text-yellow-500 font-serif font-light">
             Log In
           </div>
-          <button className="px-3 rounded-md h-[30px] font-serif font-light bg-yellow-400">
+          <button onClick={()=>history.push("/register")} className="px-3 rounded-md h-[30px] font-serif font-light bg-yellow-400">
             Register
           </button>
           <div className="p-3 cursor-pointer hover:text-yellow-500 font-serif font-light">

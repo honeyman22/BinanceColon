@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
+import { Modal } from "@mui/material";
 import {
   FormControlLabel,
   Table,
@@ -25,14 +26,15 @@ const MarketTable = () => {
 
   const coins = useCoinsReducers();
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+  const [Open, setOpen] = useState(false);
 
   return (
     <div>
@@ -51,7 +53,7 @@ const MarketTable = () => {
                   <TableCell></TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody >
+              <TableBody>
                 {coins
                   ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((item) => (
@@ -74,7 +76,12 @@ const MarketTable = () => {
                       <TableCell>{item.change}</TableCell>
                       <TableCell>{item.marketCap}</TableCell>
                       <TableCell>
-                        <div className="text-yellow-600">Detail</div>
+                        <div
+                          onClick={() => setOpen(true)}
+                          className="text-yellow-600  cursor-pointer "
+                        >
+                          Detail
+                        </div>
                       </TableCell>
                       <TableCell>
                         <div className="text-yellow-600">Trade</div>
@@ -93,10 +100,6 @@ const MarketTable = () => {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </TableContainer>
-          {/* <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      /> */}
         </div>
       </div>
     </div>

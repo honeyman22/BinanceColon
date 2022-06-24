@@ -6,6 +6,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 const Table1 = ({coins}) => {
+  console.log(coins)
   return (
     <div className='w-full h-[500px] flex justify-center p-5'>
         <div className="w-[90%] bg-white mb-2 h-[380px] rounded-lg  p-4 flex flex-col">
@@ -27,14 +28,14 @@ const Table1 = ({coins}) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {coins && coins?.splice(0,5).map((row) => (
+              {coins && coins?.slice(0,5)?.map((row) => (
                 <TableRow key={row.name}>
                   <TableCell className='text-[18px] font-normal' component="th" scope="row">
                      
                     {row.name}
                     {row.symbol}
                   </TableCell>
-                  <TableCell className='text-[18px] font-normal'>{row.price}</TableCell>
+                  <TableCell className='text-[18px] font-normal'>{Math.floor(row.price)}</TableCell>
                   <TableCell className='text-[18px] font-normal'>{Math.floor(row.change)}</TableCell>
                   <TableCell className='text-[18px] font-normal' >{Math.floor(row.marketCap/1000000)} M </TableCell>
                 </TableRow>

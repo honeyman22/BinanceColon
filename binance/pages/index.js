@@ -2,6 +2,7 @@ import Banner from "../components/Banner";
 import BulidSection from "../components/BulidSection";
 import CardContainer from "../components/CardContainer";
 import CryptoCurrency from "../components/CryptoCurrency";
+import Footer from "../components/Footer";
 import MainSection from "../components/MainSection";
 import Naivation from "../components/Naivation";
 import Need from "../components/Need";
@@ -19,6 +20,7 @@ export default function Home() {
       <SectionA />
       <Need />
       <Banner />
+      <Footer />
     </div>
   );
 }

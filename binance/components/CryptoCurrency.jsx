@@ -2,43 +2,21 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Status from './Status';
 import Table1 from './Table';
+import { CoinsAtom, StatsAtom } from '../atoms/CoinAtomState';
+import { useRecoilState } from 'recoil';
+import useCoinsReducers from '../hooks/useCoinsReducers';
 
 
 function CryptoCurrency() {
+const coins =useCoinsReducers() ;
+    const [stats,setstats] =useRecoilState(StatsAtom)
 
-const [coins,setCoins] = useState()
-const [status,setStatus]= useState()
-const Url ="https://coinranking1.p.rapidapi.com/coins"
-
-    useEffect(()=>{
-      const options = {
-    params: {
-      referenceCurrencyUuid: 'yhjMzLPhuIDl',
-      timePeriod: '24h',
-      tiers: '1',
-      orderBy: 'marketCap',
-      orderDirection: 'desc',
-      limit: '50',
-      offset: '0'
-    },
-    headers: {
-      'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-      'x-rapidapi-key': '7ea43d8172mshb25220bf45835c9p14354ajsn863a85c24ad5'
-    }
-  };
-        axios.get(Url,options).then((res)=>{
-            setCoins(res.data.data.coins);
- setStatus(res.data.data.stats);
-        }).catch((err)=>{
-            console.log(err)
-        })
-    },[])
   
    
   return <div className=''>
      
         
-         <Status status={status}/>
+         <Status status={stats}/>
          <Table1 coins={coins}/>
       </div>;
 }

@@ -1,12 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsApple, BsGoogle } from "react-icons/bs";
 import GoogleLogin from "react-google-login";
 import Image from "next/image";
-import { signInWithGoogle } from "../Firebase/Firebase";
+import { auth, db, signInWithGoogle } from "../Firebase/Firebase";
+import { useRouter } from "next/router";
+import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+
 const Welcome = () => {
+  const history = useRouter();
   const responseGoogle = (response) => {
     console.log(response);
   };
+  useEffect(() => {
+    const getData = async () => {
+      // const q = query(collection(db, "users"));
+      // const querySnapshot = await getDocs(q);
+      // querySnapshot?.forEach((doc) => {
+      //   console.log(doc.id, " => ", doc.data());
+      // });
+      const user = auth.currentUser;
+      const docRef = doc(db, "users", user?.uid ?? "1");
+      0;
+      setDoc(docRef, {
+        name: user?.displayName,
+        phone: user?.phoneNumber,
+        pic: user?.photoURL,
+      })
+        .then((docRef) => {
+          console.log("Entire Document has been updated successfully");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    getData();
+  }, [auth.currentUser]);
+
+  // set(ref(db, "users"), {
+  //   ...auth.currentUser,
+  // })
+  //   .then((res) => {
+  //     // Data saved successfully!
+  //     console.log(res);
+  //   })
+  //   .catch((error) => {
+  //     // The write failed...
+  //     console.log(error);
+  //   });
+
   return (
     <div>
       <div className="w-full px-5 flex justify-center items-center h-[89vh]">
@@ -39,7 +80,12 @@ const Welcome = () => {
               <div className="h-[1px] w-[43%] bg-black/60"></div>
             </div>
             <button
-              onClick={() => signInWithGoogle()}
+              onClick={async () => {
+                let data = await signInWithGoogle();
+                console.log(data?.user);
+
+                history.push("/");
+              }}
               className="w-[350px] text-[16px] rounded-md text-white bg-black flex justify-center items-center gap-2 h-[50px]"
             >
               <BsApple size={20} /> Countinue with Apple{" "}

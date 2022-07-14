@@ -6,6 +6,14 @@ import { useSetRecoilState } from "recoil";
 import { ProfileAtom } from "../../atoms/ProfileAtom";
 import { useRouter } from "next/router";
 import React from "react";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,17 +35,9 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();
 
+export const db = getFirestore(app);
+
 const Provider = new GoogleAuthProvider();
 
-export const signInWithGoogle = () => {
-  const data = [];
-  signInWithPopup(auth, Provider)
-    .then((res) => {
-      data.push(res.user);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  console.log(data);
-  return(data)
-};
+export const signInWithGoogle = async () =>
+  await signInWithPopup(auth, Provider);

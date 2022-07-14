@@ -20,8 +20,8 @@ const useCoinsReducers = () => {
       offset: '0'
     },
     headers: {
-      'x-rapidapi-host': process.env.REACT_APPP_CRYPTO_CRYPTO_X_RAPIDAPI_HOST,
-      'x-rapidapi-key': process.env.REACT_APPP_CRYPTO_CRYPTO_X_RAPIDAPI_KEY
+      'x-rapidapi-host': process.env.REACT_APP_CRYPTO_CRYPTO_X_RAPIDAPI_HOST,
+      'x-rapidapi-key': process.env.REACT_APP_CRYPTO_CRYPTO_X_RAPIDAPI_KEY
     }
   };
         axios.get(Url,options).then((res)=>{

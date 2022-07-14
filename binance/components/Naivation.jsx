@@ -1,6 +1,20 @@
 import Image from "next/image";
 import React from "react";
-import { BsFillGrid3X3GapFill,BsBank ,BsArrowRight} from "react-icons/bs";
+import {
+  BsFillGrid3X3GapFill,
+  BsBank,
+  BsArrowRight,
+  BsCardImage,
+  BsPiggyBank,
+  BsCalculator,
+  BsSdCard,
+  BsPercent,
+  BsPersonDash,
+  BsFillPeopleFill,
+  BsCreditCard,
+  BsCreditCard2Back,
+  BsWallet,
+} from "react-icons/bs";
 import { useRouter } from "next/router";
 const Naivation = () => {
   const history = useRouter();
@@ -31,23 +45,79 @@ const Naivation = () => {
                   Pay with
                 </div>
               </div>
-              {
-                Array(5).fill("_").map((_,i)=>(
-                  <div key={i} className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
                 <div className="flex items-center peer justify-center h-[50px] w-[50px]">
-                   <BsBank fill="yellow" size={25}/>
+                  <BsBank fill="yellow" size={25} />
                 </div>
                 <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
                   <div className="text-[20px] font-serif">Bank Deposite</div>
-                  <div className="text-[12px] text-black/60">Deposite EUR via SEPA or card</div>
-                  
+                  <div className="text-[12px] text-black/60">
+                    Deposite EUR via SEPA or card
+                  </div>
                 </div>
                 <div className="peer-hover:flex hidden items-center">
-                    <BsArrowRight fill="orange" size={25}/>
-                  </div>
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
               </div>
-                ))
-              }
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsCreditCard fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">
+                    Credit/Debit Card
+                  </div>
+                  <div className="text-[12px] text-black/60">
+                    Buy Crypto via Card
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsWallet fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">Cash Balnace</div>
+                  <div className="text-[12px] text-black/60">
+                    Buy Crypto with your EUR balance
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsBank fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">Bank Transfer</div>
+                  <div className="text-[12px] text-black/60">
+                    Buy BUSD via SEPA
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsFillPeopleFill fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">P2P trading</div>
+                  <div className="text-[12px] text-black/60">
+                    Bank transfer and !00+ options
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -64,23 +134,112 @@ const Naivation = () => {
                   Pay with
                 </div>
               </div>
-              {
-                Array(5).fill("_").map((_,i)=>(
-                  <div key={i} className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+
+              <div
+                onClick={() => history.push("/trade/converter")}
+                className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  "
+              >
                 <div className="flex items-center peer justify-center h-[50px] w-[50px]">
-                   <BsBank fill="yellow" size={25}/>
+                  <BsCalculator fill="yellow" size={25} />
                 </div>
                 <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
-                  <div className="text-[20px] font-serif">Bank Deposite</div>
-                  <div className="text-[12px] text-black/60">Deposite EUR via SEPA or card</div>
-                  
+                  <div className="text-[20px] font-serif">
+                    Binance Converter
+                  </div>
+                  <div className="text-[12px] text-black/60">
+                    The Easiest way to Trade
+                  </div>
                 </div>
                 <div className="peer-hover:flex hidden items-center">
-                    <BsArrowRight fill="orange" size={25}/>
-                  </div>
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
               </div>
-                ))
-              }
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsSdCard fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">Spot</div>
+                  <div className="text-[12px] text-black/60">
+                    Trade crypto with advance tools
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsPercent fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">Margin</div>
+                  <div className="text-[12px] text-black/60">
+                    Increase your Profile with leverage
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsPersonDash fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">P2P</div>
+                  <div className="text-[12px] text-black/60">
+                    Bank transfer and 100+ options
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsPersonDash fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">
+                    Startegy Tracking
+                  </div>
+                  <div className="text-[12px] text-black/60">
+                    Traking made easy , track like a pro.
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsPersonDash fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">Swap Farming</div>
+                  <div className="text-[12px] text-black/60">
+                    Swap to earn BNB
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
+              <div className="h-[60px] w-full  hover:bg-black/10 rounded-lg text-black  gap-3 px-3 flex items-center  ">
+                <div className="flex items-center peer justify-center h-[50px] w-[50px]">
+                  <BsPersonDash fill="yellow" size={25} />
+                </div>
+                <div className="flex flex-col peer w-[180px] h-full justify-center  items-start">
+                  <div className="text-[20px] font-serif">Fan Token</div>
+                  <div className="text-[12px] text-black/60">
+                    Upgrade your fan experiences
+                  </div>
+                </div>
+                <div className="peer-hover:flex hidden items-center">
+                  <BsArrowRight fill="orange" size={25} />
+                </div>
+              </div>
             </div>
           </div>
           <div className="p-3 cursor-pointer h-[70px] items-center flex hover:text-yellow-500 font-serif font-light">
@@ -100,7 +259,10 @@ const Naivation = () => {
           <div className="p-3 cursor-pointer hover:text-yellow-500 font-serif font-light">
             Log In
           </div>
-          <button onClick={()=>history.push("/register")} className="px-3 rounded-md h-[30px] font-serif font-light bg-yellow-400">
+          <button
+            onClick={() => history.push("/register")}
+            className="px-3 rounded-md h-[30px] font-serif font-light bg-yellow-400"
+          >
             Register
           </button>
           <div className="p-3 cursor-pointer hover:text-yellow-500 font-serif font-light">

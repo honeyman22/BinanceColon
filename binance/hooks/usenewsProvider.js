@@ -11,7 +11,7 @@ const usenewsProvider = () => {
     headers: {
       "x-bingapis-sdk": "true",
       "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-      "x-rapidapi-key": "7ea43d8172mshb25220bf45835c9p14354ajsn863a85c24ad5",
+      "x-rapidapi-key": process.env.REACT_APP_CRYPTO_CRYPTO_X_RAPIDAPI_KEY,
     },
   };
   const [news, Setnews] = useRecoilState(NewsAtom);
